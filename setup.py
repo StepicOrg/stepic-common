@@ -8,6 +8,6 @@ version = __import__('src').get_version()
 setup(name='stepic_common',
       version=version,
       package_dir={'': 'src'},
-      packages=['stepic_common', 'stepic_common.bio'],
+      packages=['stepic_common'],
       install_requires=['biopython']
       )
