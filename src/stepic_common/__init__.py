@@ -14,6 +14,20 @@ def equal_ints(reply, clue):
     return [int(x) for x in reply.split()] == [int(x) for x in clue.split()]
 
 
+def equal_float(reply, clue, precision=3):
+    answer = float(reply)
+    output = float(clue)
+    return abs(reply - clue) < 0.1 ** precision + 1e-6
+
+
+def equal_floats(reply, clue, precision=3):
+    reply = [float(x) for x in reply.split()]
+    clue = [float(x) for x in clue.split()]
+    if len(reply) != len(clue):
+        return False
+    return all(abs(x - y) < 0.1 ** precision + 1e-6 for (x, y) in zip(reply, clue))
+
+
 def equal_string_multiset(reply, clue):
     answer = collections.Counter(reply.split())
     output = collections.Counter(clue.split())
@@ -41,5 +55,4 @@ def nice(*args):
             return ' '.join(map(str, x))
         else:
             return str(x)
-
     return '\n'.join(map(flat_nice, args))
