@@ -16,7 +16,7 @@ def equal_ints(reply, clue):
 
 def equal_float(reply, clue, precision=3):
     reply = float(reply)
-    output = float(clue)
+    clue = float(clue)
     return abs(reply - clue) < 0.1 ** precision + 1e-6
 
 
